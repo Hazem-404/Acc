@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egypt-Trends | هودي بيزيك للجنسين</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        input, select, textarea { font-size: 16px !important; } 
+        .loader { border-top-color: #ef4444; border-left-color: transparent; animation: spinner 1s linear infinite; }
+        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* تأثير الخلفية المتحركة المشوقة */
+        .animated-bg {
+            background: linear-gradient(270deg, #f8fafc, #e2e8f0, #edf2f7, #f1f5f9);
+            background-size: 800% 800%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="animated-bg">
+
+    <header class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 text-center">
+        <div class="py-3 border-b border-gray-100">
+            <h1 class="text-3xl font-black tracking-tighter">
+                <span class="text-red-600">EGYPT</span>
+                <span class="text-black">-</span>
+                <span class="text-black italic">TRENDS</span>
+            </h1>
+            <p class="text-[10px] text-gray-400 tracking-[0.2em] font-bold uppercase">أقوى عروض الشتاء</p>
+        </div>
+        
+        <div class="bg-black text-white py-2 text-sm font-bold flex justify-center items-center gap-2">
+            <span>🔥 عرض الهودي الـ 2 قطعة ينتهي خلال:</span>
+            <div id="timer" class="text-yellow-400 font-mono font-bold">05:00:00</div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto bg-white/95 backdrop-blur-sm min-h-screen shadow-2xl rounded-b-2xl pb-10 mt-2">
+        
+        <div class="relative">
+            <img src="https://i5.walmartimages.com/seo/White-Hoodie-White-Sweatshirt-Hoodies-for-Men-Hoodie-for-Women-Unisex-Pullover-Hoodie-for-Women-Men-Hoodie-with-Pullover_a2948858-3b97-49ad-9d75-503f411cf54c.1af6d69b770b382f25c0c46b5c3e9b72.jpeg" class="w-full h-auto rounded-b-2xl" alt="هودي أبيض للجنسين">
+            <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                الأكثر طلباً هذا الموسم ❄️
+            </div>
+        </div>
+
+        <div class="p-5">
+            <h1 class="text-2xl font-bold text-gray-800 mb-2">هودي بيزيك شتوي (للجنسين)</h1>
+            <p class="text-gray-500 text-sm mb-4">خامة ميلتون مبطنة عالية الجودة، تدفئة ممتازة، تلبيس مريح جداً.</p>
+            
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl font-bold text-green-600">399 ج.م</span>
+                <span class="text-lg text-gray-400 line-through">650 ج.م</span>
+            </div>
+
+            <div class="bg-red-50 border-r-4 border-red-500 p-4 mb-6 rounded-lg shadow-sm">
+                <p class="text-red-700 font-extrabold text-lg text-center">💥 العرض الجبار: اشتري 2 هودي بـ 599 ج بس! (بدلاً من 798 ج)</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 mb-8 text-center text-[11px] font-bold">
+                <div class="bg-gray-100 p-2 rounded-lg text-gray-700">✅ قطن ميلتون فاخر</div>
+                <div class="bg-gray-100 p-2 rounded-lg text-gray-700">❄️ مبطن وبرة داخلية</div>
+                <div class="bg-gray-100 p-2 rounded-lg text-gray-700">👕 تلبيس مظبوط ومريح</div>
+                <div class="bg-gray-100 p-2 rounded-lg text-gray-700">👫 موديل للجنسين</div>
+            </div>
+
+            <div class="bg-white border-2 border-red-600 rounded-3xl p-6 shadow-[0_10px_40px_-15px_rgba(220,38,38,0.3)]" id="form-container">
+                <h2 class="text-center text-xl font-bold mb-6">سجل بياناتك واختار مقاسك</h2>
+                
+                <form id="orderForm" name="google-sheet">
+                    <div class="mb-4">
+                        <label class="block font-bold mb-1 text-gray-700 text-sm">الاسم بالكامل</label>
+                        <input type="text" name="Name" placeholder="اكتب اسمك ثلاثي" required 
+                               class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 outline-none transition-all focus:shadow-md">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-bold mb-1 text-gray-700 text-sm">رقم الموبايل</label>
+                        <input type="tel" name="Phone" placeholder="01xxxxxxxxx" pattern="[0-9]{11}" required 
+                               class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 outline-none transition-all focus:shadow-md">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <div>
+                            <label class="block font-bold mb-1 text-gray-700 text-sm">اللون المطلوب</label>
+                            <select name="Color" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 outline-none transition-all focus:shadow-md">
+                                <option value="">اختر اللون</option>
+                                <option value="أبيض">أبيض (كما بالصورة)</option>
+                                <option value="أسود">أسود</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1 text-gray-700 text-sm">المقاس</label>
+                            <select name="Size" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 outline-none transition-all focus:shadow-md dir-ltr text-center">
+                                <option value="">اختر المقاس</option>
+                                <option value="S">S (سمول)</option>
+                                <option value="M">M (ميديم)</option>
+                                <option value="L">L (لارج)</option>
+                                <option value="XL">XL (إكس لارج)</option>
+                                <option value="XXL">XXL (2 إكس لارج)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-bold mb-1 text-gray-700 text-sm">الكمية (استفيد بالعرض)</label>
+                        <select name="Quantity" required class="w-full p-4 bg-red-50 border border-red-200 rounded-xl focus:border-red-600 outline-none transition-all focus:shadow-md font-bold text-red-900">
+                            <option value="1">قطعة واحدة بـ 399 ج</option>
+                            <option value="2" selected>عرض القطعتين بـ 599 ج (الأكثر طلباً) 🔥</option>
+                            <option value="3">3 قطع بـ 899 ج (عرض الصحاب)</option>
+                            <option value="4">4 قطع بـ 1150 ج</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-bold mb-1 text-gray-700 text-sm">المحافظة</label>
+                        <select name="City" required class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 outline-none transition-all focus:shadow-md">
+                            <option value="">اختر محافظتك</option>
+                            <option value="القاهرة">القاهرة</option>
+                            <option value="الجيزة">الجيزة</option>
+                            <option value="الإسكندرية">الإسكندرية</option>
+                            <option value="الدقهلية">الدقهلية</option>
+                            <option value="الغربية">الغربية</option>
+                            <option value="المنوفية">المنوفية</option>
+                            <option value="الشرقية">الشرقية</option>
+                            <option value="القليوبية">القليوبية</option>
+                            <option value="البحيرة">البحيرة</option>
+                            <option value="كفر الشيخ">كفر الشيخ</option>
+                            <option value="دمياط">دمياط</option>
+                            <option value="بورسعيد">بورسعيد</option>
+                            <option value="الإسماعيلية">الإسماعيلية</option>
+                            <option value="السويس">السويس</option>
+                            <option value="الفيوم">الفيوم</option>
+                            <option value="بني سويف">بني سويف</option>
+                            <option value="المنيا">المنيا</option>
+                            <option value="أسيوط">أسيوط</option>
+                            <option value="سوهاج">سوهاج</option>
+                            <option value="قنا">قنا</option>
+                            <option value="الأقصر">الأقصر</option>
+                            <option value="أسوان">أسوان</option>
+                            <option value="البحر الأحمر">البحر الأحمر</option>
+                            <option value="الوادى الجديد">الوادى الجديد</option>
+                            <option value="مطروح">مطروح</option>
+                            <option value="جنوب سيناء">جنوب سيناء</option>
+                            <option value="شمال سيناء">شمال سيناء</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block font-bold mb-1 text-gray-700 text-sm">العنوان بالتفصيل</label>
+                        <textarea name="Address" rows="2" placeholder="المنطقة - الشارع - رقم العمارة" required 
+                                  class="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-600 outline-none transition-all focus:shadow-md"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-5 rounded-xl text-xl shadow-xl transition-all active:scale-95 flex justify-center items-center gap-2 hover:shadow-red-500/50">
+                        إتمام الطلب الآن 🛍️
+                    </button>
+                </form>
+
+                <div id="successMsg" class="hidden text-center py-10">
+                    <div class="text-7xl mb-4 animate-bounce">🎉</div>
+                    <h2 class="text-2xl font-bold text-green-600 mb-2">تم استلام طلبك بنجاح!</h2>
+                    <p class="text-gray-700 font-bold">هنتواصل معاك حالاً لمراجعة المقاس وتأكيد الشحن.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-6 text-center text-gray-500 text-[11px]">
+        &copy; 2026 Egypt-Trends. All rights reserved. <br>
+        الدفع عند الاستلام - متاح المعاينة لضمان الجودة.
+    </footer>
+
+    <script>
+        // الرابط الجديد (Optimized Script URL)
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyMl-Pwu8HAzsdNAZb2CdXcsHlWMqzfyS_ZfZbKwKiyGJMM1dV1SzjKf3Uik-sTZzR8/exec';
+        
+        const form = document.forms['google-sheet'];
+        const btn = document.getElementById('submitBtn');
+        const success = document.getElementById('successMsg');
+        const formBox = document.getElementById('orderForm');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerHTML = '<div class="loader rounded-full border-4 h-6 w-6 mr-2"></div> جاري تسجيل طلبك...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    formBox.classList.add('hidden');
+                    success.classList.remove('hidden');
+                    window.scrollTo({ top: document.getElementById('form-container').offsetTop - 100, behavior: 'smooth' });
+                })
+                .catch(error => {
+                    alert('عفواً، حدث خطأ في الاتصال. حاول مرة أخرى!');
+                    btn.disabled = false;
+                    btn.innerHTML = 'إتمام الطلب الآن 🛍️';
+                });
+        });
+
+        function startTimer(duration, display) {
+            var timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10); minutes = parseInt((timer % 3600) / 60, 10); seconds = parseInt(timer % 60, 10);
+                display.textContent = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+                if (--timer < 0) timer = duration;
+            }, 1000);
+        }
+        window.onload = function () { startTimer(60 * 60 * 5, document.querySelector('#timer')); };
+    </script>
+</body>
+</html>
