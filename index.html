@@ -3,205 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egypt-Trends | هودي نص سوستة</title>
+    <title>نظام تسجيل الأوردرات | Egypt-Trends</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #0f172a; color: #f1f5f9; scroll-behavior: smooth; overflow-x: hidden; }
-        
-        /* سلاسة التمرير للصور */
-        .snap-x { scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
-        .snap-center { scroll-snap-align: center; }
-        ::-webkit-scrollbar { display: none; }
-
-        /* أنيميشن ناعم جداً */
-        .fade-in { animation: fadeIn 1.2s ease-in-out forwards; opacity: 0; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .loader { border-top-color: #ef4444; border-left-color: transparent; animation: spin 1s linear infinite; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8fafc; }
+        .loader { border-top-color: #0f172a; border-left-color: transparent; animation: spin 0.8s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        input, select, textarea { font-size: 16px !important; background-color: #1e293b !important; color: #f1f5f9 !important; border: 1px solid #334155 !important; }
-        input:focus, select:focus { border-color: #ef4444 !important; outline: none; }
-        
-        .premium-card { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
-<body class="text-right">
-
-    <header class="bg-[#0f172a]/90 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800">
-        <div class="py-3 text-center">
-            <h1 class="text-xl font-black tracking-[0.2em] uppercase">
-                <span class="text-red-500">EGYPT</span><span class="text-slate-400">-</span><span class="text-slate-100">TRENDS</span>
-            </h1>
-        </div>
-    </header>
+<body class="p-4 md:p-10 text-right">
 
     <main class="max-w-md mx-auto">
-        
-        <div class="relative overflow-hidden shadow-2xl">
-            <div class="flex overflow-x-auto snap-x snap-mandatory h-[400px]">
-                <div class="min-w-full h-full snap-center flex-shrink-0">
-                    <img src="https://api.cezma.cloud/storage/thumbnails/products/web/1738489687ezgmv3gnn7nzp1oaajgdqon96m00kcwe3q1bngs8.jpg" class="w-full h-full object-cover" alt="Product 1">
+        <div class="bg-white rounded-[2.5rem] shadow-xl p-8 border border-slate-100">
+            <header class="text-center mb-8">
+                <h1 class="text-2xl font-black text-slate-900 tracking-tighter uppercase">EGYPT-TRENDS</h1>
+                <p class="text-slate-400 font-bold mt-1 text-[10px] tracking-widest">MARKETER PORTAL</p>
+            </header>
+
+            <form id="orderForm" class="space-y-5">
+                <input type="text" name="MarketerName" placeholder="اسم المسوقة (ثنائي)" required 
+                       class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-slate-900 font-bold">
+
+                <hr class="border-slate-50">
+
+                <select name="ProductType" required class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-slate-900 font-bold">
+                    <option value="">نوع المنتج</option>
+                    <option value="سلسلة قلب وسيف">سلسلة قلب وسيف</option>
+                    <option value="انسيال توليب">انسيال توليب</option>
+                </select>
+
+                <div class="flex items-center gap-3 bg-slate-50 p-2 rounded-2xl border border-slate-100">
+                    <span class="text-xs font-black text-slate-400 mr-2 uppercase">الكمية:</span>
+                    <input type="number" name="Quantity" min="1" value="1" required 
+                           class="flex-1 p-3 bg-white border border-slate-100 rounded-xl outline-none focus:border-slate-900 font-bold text-center">
                 </div>
-                <div class="min-w-full h-full snap-center flex-shrink-0">
-                    <img src="https://api.cezma.cloud/storage/products/1738489686liz3jprqgqa1ujhq5kxxv8yckgf0n7qq2skwyhbx.jpg" class="w-full h-full object-cover" alt="Product 2">
+
+                <div class="space-y-3">
+                    <input type="text" name="Name" placeholder="اسم العميل" required 
+                           class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-slate-900">
+                    <input type="tel" name="Phone" placeholder="رقم الموبايل" pattern="[0-9]{11}" required 
+                           class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-slate-900">
+                    
+                    <select name="City" required class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-slate-900 cursor-pointer">
+                        <option value="">المحافظة</option>
+                        <option value="القاهرة">القاهرة</option><option value="الجيزة">الجيزة</option><option value="الإسكندرية">الإسكندرية</option>
+                        <option value="البحيرة">البحيرة</option><option value="الدقهلية">الدقهلية</option><option value="الشرقية">الشرقية</option>
+                        <option value="الغربية">الغربية</option><option value="القليوبية">القليوبية</option><option value="الإسماعيلية">الإسماعيلية</option>
+                        <option value="السويس">السويس</option><option value="المنوفية">المنوفية</option><option value="بورسعيد">بورسعيد</option>
+                        <option value="كفر الشيخ">كفر الشيخ</option><option value="المحلة">المحلة</option><option value="العاشر من رمضان">العاشر من رمضان</option>
+                        <option value="طنطا">طنطا</option><option value="بني سويف">بني سويف</option><option value="دمياط">دمياط</option>
+                        <option value="سوهاج">سوهاج</option><option value="أسيوط">أسيوط</option><option value="الفيوم">الفيوم</option>
+                        <option value="العين السخنة">العين السخنة</option><option value="أسوان">أسوان</option><option value="قنا">قنا</option>
+                        <option value="المنيا">المنيا</option><option value="وادي النطرون">وادي النطرون</option><option value="مطروح">مطروح</option>
+                        <option value="الأقصر">الأقصر</option><option value="الساحل الشمالي">الساحل الشمالي</option><option value="البحر الأحمر">البحر الأحمر</option>
+                    </select>
+
+                    <textarea name="Address" rows="2" placeholder="العنوان بالتفصيل" required 
+                              class="w-full p-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:border-slate-900 resize-none"></textarea>
                 </div>
-            </div>
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-                <div class="w-1.5 h-1.5 bg-red-500 rounded-full"></div>
-                <div class="w-1.5 h-1.5 bg-slate-500 rounded-full"></div>
-            </div>
-            <div class="absolute bottom-4 right-4 bg-black/40 backdrop-blur-md text-[9px] px-2 py-1 rounded text-slate-300 uppercase tracking-widest">
-                اسحب للتفاصيل ➔
-            </div>
-        </div>
 
-        <div class="p-6 fade-in">
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold text-slate-100 mb-2">هودي نص سوستة رجالي</h2>
-                <div class="flex items-baseline gap-3">
-                    <span class="text-3xl font-black text-red-500">599 ج.م</span>
-                    <span class="text-sm text-slate-500 line-through decoration-slate-600">850 ج.م</span>
-                </div>
-                <p class="mt-4 text-sm text-slate-400 leading-relaxed font-light">
-                    ميلتون شتوي مبطن، قطعة أساسية في دولابك بتصميم عصري وخامة لا تتأثر بالغسيل.
-                </p>
-            </div>
+                <button type="submit" id="submitBtn" 
+                        class="w-full bg-slate-900 text-white font-black py-5 rounded-3xl text-lg shadow-xl active:scale-95 transition-all">
+                    تأكيد وتسجيل الأوردر
+                </button>
+            </form>
 
-            <div class="premium-card p-4 mb-10 rounded-xl">
-                <p class="text-red-400 font-bold text-sm text-center italic">
-                    🔥 اطلب قطعتين بـ <span class="text-white">1100 ج</span> ووفر 100 ج إضافية!
-                </p>
-            </div>
-
-            <div id="form-container">
-                <form id="orderForm" class="space-y-6">
-                    <input type="text" name="honeypot" style="display:none" tabindex="-1">
-                    <input type="hidden" name="Color" id="finalColor">
-                    <input type="hidden" name="Size" id="finalSize">
-
-                    <div class="grid gap-4">
-                        <input type="text" name="Name" placeholder="الاسم بالكامل" required class="w-full p-4 rounded-xl outline-none placeholder:text-slate-500 shadow-inner">
-                        <input type="tel" name="Phone" placeholder="رقم الموبايل (11 رقم)" pattern="[0-9]{11}" required class="w-full p-4 rounded-xl outline-none placeholder:text-slate-500 shadow-inner">
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">اختيار الكمية:</label>
-                        <select name="Quantity" id="qtySelect" required class="w-full p-4 rounded-xl font-bold outline-none cursor-pointer">
-                            <option value="1" selected>قطعة واحدة (599 ج)</option>
-                            <option value="2">قطعتين (1100 ج) 🔥</option>
-                            <option value="3">3 قطع (1550 ج)</option>
-                        </select>
-                    </div>
-
-                    <div id="dynamic-options" class="space-y-4"></div>
-
-                    <div class="space-y-4 pt-2">
-                        <label class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">بيانات الشحن:</label>
-                        <select name="City" required class="w-full p-4 rounded-xl outline-none cursor-pointer">
-                            <option value="">اختر المحافظة</option>
-                            <option value="القاهرة">القاهرة</option><option value="الجيزة">الجيزة</option><option value="الإسكندرية">الإسكندرية</option>
-                            <option value="الدقهلية">الدقهلية</option><option value="البحر الأحمر">البحر الأحمر</option><option value="البحيرة">البحيرة</option>
-                            <option value="الفيوم">الفيوم</option><option value="الغربية">الغربية</option><option value="الإسماعيلية">الإسماعيلية</option>
-                            <option value="المنوفية">المنوفية</option><option value="المنيا">المنيا</option><option value="القليوبية">القليوبية</option>
-                            <option value="الوادي الجديد">الوادي الجديد</option><option value="السويس">السويس</option><option value="الشرقية">الشرقية</option>
-                            <option value="سوهاج">سوهاج</option><option value="جنوب سيناء">جنوب سيناء</option><option value="شمال سيناء">شمال سيناء</option>
-                            <option value="قنا">قنا</option><option value="كفر الشيخ">كفر الشيخ</option><option value="مطروح">مطروح</option>
-                            <option value="الأقصر">الأقصر</option><option value="أسوان">أسوان</option><option value="أسيوط">أسيوط</option>
-                            <option value="بني سويف">بني سويف</option><option value="بورسعيد">بورسعيد</option><option value="دمياط">دمياط</option>
-                        </select>
-                        <textarea name="Address" rows="2" placeholder="العنوان بالتفصيل" required class="w-full p-4 rounded-xl outline-none resize-none placeholder:text-slate-500 shadow-inner"></textarea>
-                    </div>
-
-                    <button type="submit" id="submitBtn" class="w-full bg-red-600 hover:bg-red-700 text-white font-black py-5 rounded-2xl text-lg tracking-widest transition-all active:scale-95 shadow-[0_0_20px_rgba(239,68,68,0.2)] mt-4">
-                        إتمام الطلب الآن 🛍️
-                    </button>
-                </form>
-
-                <div id="successMsg" class="hidden text-center py-20 fade-in">
-                    <div class="text-6xl mb-6">✅</div>
-                    <h2 class="text-2xl font-black text-slate-100 mb-2 font-black">تم تسجيل طلبك</h2>
-                    <p class="text-slate-400 font-light">هنتصل بيك خلال دقايق لتأكيد العنوان وشحن الهودي.</p>
-                </div>
+            <div id="successMsg" class="hidden text-center py-10">
+                <div class="text-7xl mb-4 animate-bounce">✅</div>
+                <h2 class="text-2xl font-black text-slate-900 mb-2">تم الحفظ بنجاح</h2>
+                <p class="text-slate-400 font-bold text-sm">تم إرسال بيانات الأوردر للإدارة.</p>
+                <button onclick="location.reload()" class="mt-8 text-slate-900 font-black border-b-2 border-slate-900">تسجيل أوردر جديد</button>
             </div>
         </div>
     </main>
 
-    <footer class="py-10 text-center text-slate-600 text-[9px] tracking-[0.3em] font-light">
-        &copy; 2026 EGYPT-TRENDS | PREMIUM STREETWEAR
-    </footer>
-
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxZN5tc-XvTva8SijP1IyoC_jeaUyBAVnK01L9a28SwJfCjh058qA7yfe4P_IVI8GK_/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyojmh6zIiwlIrA4C2NkGZzzZqROCEpB9OX5xt5tsPz93ge3Z2lnMgqUwUU4faHAYDT-w/exec';
         const form = document.getElementById('orderForm');
         const btn = document.getElementById('submitBtn');
-        const success = document.getElementById('successMsg');
-        const qtySelect = document.getElementById('qtySelect');
-        const dynamicOptions = document.getElementById('dynamic-options');
-
-        function updateOptions() {
-            const qty = parseInt(qtySelect.value);
-            dynamicOptions.innerHTML = '';
-            for (let i = 1; i <= qty; i++) {
-                const html = `
-                    <div class="premium-card p-4 rounded-xl space-y-3 fade-in">
-                        <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">خيارات القطعة #${i}:</p>
-                        <div class="grid grid-cols-2 gap-3">
-                            <select class="item-color p-3 rounded-lg text-sm outline-none" required>
-                                <option value="">اللون</option>
-                                <option value="أسود">أسود</option>
-                                <option value="زيتي">زيتي</option>
-                            </select>
-                            <select class="item-size p-3 rounded-lg text-sm outline-none" required>
-                                <option value="">المقاس</option>
-                                <option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option><option value="3XL">3XL</option>
-                            </select>
-                        </div>
-                    </div>
-                `;
-                dynamicOptions.insertAdjacentHTML('beforeend', html);
-            }
-        }
-
-        qtySelect.addEventListener('change', updateOptions);
-        window.onload = updateOptions;
 
         form.addEventListener('submit', e => {
             e.preventDefault();
-            if (form.honeypot.value) return; 
-
-            const colors = Array.from(document.querySelectorAll('.item-color')).map(s => s.value).join(' | ');
-            const sizes = Array.from(document.querySelectorAll('.item-size')).map(s => s.value).join(' | ');
-            document.getElementById('finalColor').value = colors;
-            document.getElementById('finalSize').value = sizes;
-
             btn.disabled = true;
-            btn.innerHTML = '<div class="loader rounded-full border-2 h-5 w-5 mx-auto"></div>';
+            btn.innerHTML = '<div class="loader rounded-full border-4 h-6 w-6 mx-auto"></div>';
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(r => {
-                    document.getElementById('orderForm').style.display = 'none';
-                    success.classList.remove('hidden');
+                    form.classList.add('hidden');
+                    document.getElementById('successMsg').classList.remove('hidden');
                     window.scrollTo({top: 0, behavior: 'smooth'});
                 })
                 .catch(err => {
-                    alert('خطأ في الاتصال، حاول مجدداً.');
+                    alert('حدث خطأ، حاول مرة أخرى');
                     btn.disabled = false;
-                    btn.innerHTML = 'إتمام الطلب الآن 🛍️';
+                    btn.innerHTML = 'تأكيد وتسجيل الأوردر';
                 });
         });
-
-        // Timer Logic
-        function timer(d, display) {
-            var t = d, h, m, s;
-            setInterval(() => {
-                h = Math.floor(t/3600); m = Math.floor((t%3600)/60); s = t%60;
-                display.textContent = (h<10?"0"+h:h)+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
-                if (--t < 0) t = d;
-            }, 1000);
-        }
-        timer(18000, document.querySelector('#timer'));
     </script>
 </body>
 </html>
